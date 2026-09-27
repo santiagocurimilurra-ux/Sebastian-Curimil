@@ -4,8 +4,8 @@ Sitio web de turismo **Rutas del Sur · Excursiones en Chile**.
 
 Sitio estático (HTML, CSS y JavaScript sin dependencias):
 
-- `index.html`: estructura y contenido (destinos, nosotros, opiniones, contacto).
-- `assets/styles.css`: estilos, adaptable a móvil y con modo oscuro automático.
+- `index.html`: estructura y contenido (portada, mapa, tours, mi viaje, contacto).
+- `assets/styles.css`: estilos, adaptable a móvil y con modo claro y oscuro.
 - `assets/script.js`: catálogo de tours con su itinerario día a día (lista `TOURS`), mapa interactivo,
   armador de viaje y formulario.
 
