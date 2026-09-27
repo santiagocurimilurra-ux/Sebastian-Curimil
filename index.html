@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rutas del Sur · Excursiones en Chile</title>
+  <meta name="description" content="Excursiones y tours guiados por Chile: Patagonia, Atacama, Chiloé, Pucón, Valparaíso e Isla de Pascua.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 26 L12 10 L18 19 L22 14 L30 26 Z' fill='%23e07a3f'/></svg>">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="brand">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26 L12 10 L18 19 L22 14 L30 26 Z"/></svg>
+        Rutas del Sur
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#destinos">Destinos</a></li>
+        <li><a href="#tours">Tours</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#contacto" class="btn btn-small">Reservar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice">
+          <circle cx="1080" cy="170" r="70" class="sun"/>
+          <path class="m3" d="M0 420 L180 260 L320 360 L520 180 L700 340 L880 220 L1080 380 L1260 240 L1440 330 L1440 600 L0 600 Z"/>
+          <path class="m2" d="M0 480 L220 340 L400 440 L600 300 L820 450 L1000 330 L1220 460 L1440 380 L1440 600 L0 600 Z"/>
+          <path class="m1" d="M0 540 L260 440 L480 520 L720 420 L960 530 L1200 450 L1440 520 L1440 600 L0 600 Z"/>
+        </svg>
+      </div>
+      <div class="container hero-content">
+        <p class="eyebrow">Excursiones guiadas en Chile</p>
+        <h1>Del desierto más árido<br>a los glaciares del fin del mundo</h1>
+        <p class="lead">Viajes en grupos pequeños, guías locales y rutas pensadas para que conozcas Chile como lo conocen quienes viven aquí.</p>
+
+        <form class="search" id="search-form">
+          <label>
+            <span>Destino</span>
+            <select id="search-region">
+              <option value="all">Todos los destinos</option>
+              <option value="norte">Norte</option>
+              <option value="centro">Centro</option>
+              <option value="sur">Sur</option>
+              <option value="patagonia">Patagonia</option>
+              <option value="isla">Isla de Pascua</option>
+            </select>
+          </label>
+          <label>
+            <span>Fecha</span>
+            <input type="date" id="search-date">
+          </label>
+          <label>
+            <span>Personas</span>
+            <input type="number" id="search-people" min="1" max="20" value="2">
+          </label>
+          <button type="submit" class="btn">Buscar tours</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats container" aria-label="Rutas del Sur en cifras">
+      <div><strong data-count="12">12</strong><span>años guiando</span></div>
+      <div><strong data-count="4800">4.800</strong><span>viajeros felices</span></div>
+      <div><strong data-count="35">35</strong><span>rutas activas</span></div>
+      <div><strong data-count="4.9" data-decimals="1">4,9</strong><span>valoración media</span></div>
+    </section>
+
+    <!-- Destinos -->
+    <section class="section container" id="destinos">
+      <header class="section-head">
+        <p class="eyebrow">Destinos</p>
+        <h2>Un país, todos los paisajes</h2>
+        <p>4.300 km de norte a sur. Elige por dónde empezar.</p>
+      </header>
+
+      <div class="destinations">
+        <article class="dest dest-atacama">
+          <div class="dest-art" aria-hidden="true"></div>
+          <div class="dest-body">
+            <span class="tag">Norte</span>
+            <h3>San Pedro de Atacama</h3>
+            <p>Salares, géiseres al amanecer y los cielos más limpios del planeta para mirar estrellas.</p>
+          </div>
+        </article>
+        <article class="dest dest-valpo">
+          <div class="dest-art" aria-hidden="true"></div>
+          <div class="dest-body">
+            <span class="tag">Centro</span>
+            <h3>Valparaíso y Casablanca</h3>
+            <p>Cerros de colores, ascensores centenarios y viñedos a media hora de la costa.</p>
+          </div>
+        </article>
+        <article class="dest dest-pucon">
+          <div class="dest-art" aria-hidden="true"></div>
+          <div class="dest-body">
+            <span class="tag">Sur</span>
+            <h3>Pucón y la Araucanía</h3>
+            <p>Volcán Villarrica, termas entre bosques y la cultura mapuche en primera persona.</p>
+          </div>
+        </article>
+        <article class="dest dest-chiloe">
+          <div class="dest-art" aria-hidden="true"></div>
+          <div class="dest-body">
+            <span class="tag">Sur</span>
+            <h3>Chiloé</h3>
+            <p>Palafitos, iglesias de madera patrimonio de la humanidad y curanto al hoyo.</p>
+          </div>
+        </article>
+        <article class="dest dest-paine">
+          <div class="dest-art" aria-hidden="true"></div>
+          <div class="dest-body">
+            <span class="tag">Patagonia</span>
+            <h3>Torres del Paine</h3>
+            <p>Granito, glaciares y guanacos. El trekking que todo viajero sueña hacer una vez.</p>
+          </div>
+        </article>
+        <article class="dest dest-rapa">
+          <div class="dest-art" aria-hidden="true"></div>
+          <div class="dest-body">
+            <span class="tag">Isla de Pascua</span>
+            <h3>Rapa Nui</h3>
+            <p>Moáis frente al Pacífico, cráteres volcánicos y la playa de Anakena.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tours -->
+    <section class="section section-alt" id="tours">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Tours</p>
+          <h2>Próximas salidas</h2>
+          <p>Precios por persona en pesos chilenos. Incluyen guía, traslados y entradas.</p>
+        </header>
+
+        <div class="filters" role="tablist" aria-label="Filtrar tours por región">
+          <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+          <button class="chip" data-filter="norte" role="tab" aria-selected="false">Norte</button>
+          <button class="chip" data-filter="centro" role="tab" aria-selected="false">Centro</button>
+          <button class="chip" data-filter="sur" role="tab" aria-selected="false">Sur</button>
+          <button class="chip" data-filter="patagonia" role="tab" aria-selected="false">Patagonia</button>
+          <button class="chip" data-filter="isla" role="tab" aria-selected="false">Isla de Pascua</button>
+        </div>
+
+        <div class="tours" id="tour-list"></div>
+        <p class="empty" id="tour-empty" hidden>No hay tours para ese filtro todavía. Escríbenos y armamos uno a tu medida.</p>
+      </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section class="section container about" id="nosotros">
+      <div>
+        <p class="eyebrow">Nosotros</p>
+        <h2>Viajar despacio, con gente de aquí</h2>
+        <p>Rutas del Sur nació en el sur de Chile con una idea simple: mostrar el país con guías que crecieron en cada territorio. Trabajamos con comunidades locales, alojamientos familiares y grupos de máximo 12 personas.</p>
+        <ul class="features">
+          <li><strong>Grupos pequeños.</strong> Máximo 12 viajeros por guía.</li>
+          <li><strong>Guías locales certificados.</strong> Primeros auxilios en zonas remotas.</li>
+          <li><strong>Turismo responsable.</strong> Parte de cada reserva va a proyectos de conservación.</li>
+          <li><strong>Cancelación flexible.</strong> Reembolso completo hasta 72 h antes.</li>
+        </ul>
+      </div>
+      <div class="about-card" aria-hidden="true">
+        <svg viewBox="0 0 200 420">
+          <path class="chile" d="M120 8 C128 40 118 70 124 100 C130 130 116 160 120 190 C124 220 108 250 110 280 C112 300 98 320 92 340 C86 360 70 372 76 392 C80 404 96 410 104 402 C98 390 108 378 104 366 C112 350 110 336 118 320 C124 300 122 280 128 260 C132 230 126 200 134 170 C138 140 132 110 138 80 C142 50 134 24 120 8 Z"/>
+          <g class="pins">
+            <circle cx="130" cy="60" r="6"/>
+            <circle cx="122" cy="170" r="6"/>
+            <circle cx="118" cy="250" r="6"/>
+            <circle cx="108" cy="300" r="6"/>
+            <circle cx="90" cy="380" r="6"/>
+            <circle cx="30" cy="190" r="6"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Opiniones -->
+    <section class="section section-alt" id="opiniones">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Opiniones</p>
+          <h2>Lo que cuentan quienes viajaron</h2>
+        </header>
+        <div class="reviews">
+          <blockquote>
+            <p>“El amanecer en los géiseres del Tatio fue mágico. El guía sabía cada detalle del desierto.”</p>
+            <footer><span class="stars" aria-label="5 de 5">★★★★★</span> Camila R. · Santiago</footer>
+          </blockquote>
+          <blockquote>
+            <p>“Hicimos la W en Torres del Paine sin preocuparnos de nada. Todo impecable, comida incluida.”</p>
+            <footer><span class="stars" aria-label="5 de 5">★★★★★</span> Martín y Lucía · Buenos Aires</footer>
+          </blockquote>
+          <blockquote>
+            <p>“Chiloé con una familia local, curanto incluido. Lo mejor de nuestro viaje por Chile.”</p>
+            <footer><span class="stars" aria-label="5 de 5">★★★★★</span> Anna K. · Berlín</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section container contact" id="contacto">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Reserva o arma tu viaje</h2>
+        <p>Cuéntanos qué te gustaría vivir y te respondemos en menos de 24 horas con una propuesta.</p>
+        <ul class="contact-info">
+          <li><span>Correo</span><a href="mailto:excursiones420@gmail.com">excursiones420@gmail.com</a></li>
+          <li><span>Horario</span>Lunes a sábado, 9:00 a 19:00</li>
+          <li><span>Oficina</span>Puerto Varas, Región de Los Lagos</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <label>Nombre
+          <input type="text" name="nombre" required autocomplete="name">
+        </label>
+        <label>Correo electrónico
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label>Tour de interés
+          <select name="tour" id="contact-tour">
+            <option value="">Aún no lo sé</option>
+          </select>
+        </label>
+        <label>Mensaje
+          <textarea name="mensaje" rows="4" placeholder="Fechas, número de personas, intereses…"></textarea>
+        </label>
+        <button type="submit" class="btn">Enviar consulta</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Rutas del Sur · Excursiones en Chile</p>
+      <a href="#top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
