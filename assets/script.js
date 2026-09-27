@@ -248,7 +248,7 @@ const TOURS = [
 
   // ---------- PATAGONIA ----------
   {
-    id: 'w-trek', region: 'patagonia', title: 'Circuito W en Torres del Paine', days: 5, nights: 4, price: 1890000,
+    id: 'w-trek', region: 'patagonia', title: 'Circuito W en Torres del Paine', days: 5, nights: 4, price: 1890000, depositPct: .5,
     level: 'Exigente', maxAlt: '870 m', pin: [86, 386], base: 'Puerto Natales',
     desc: 'Cinco días de glaciares, granito y guanacos. Refugios y comidas incluidos.',
     includes: ['4 noches en refugio', 'Pensión completa', 'Entrada al parque', 'Catamarán Pehoé', 'Guía todo el recorrido'],
@@ -587,19 +587,31 @@ const HINTS = {
   patagonia: 'Patagonia · glaciares y Torres del Paine',
   isla: 'Rapa Nui · moáis en medio del Pacífico',
 };
-const RIDGES = {
-  norte: 'M0 60 L20 35 L35 48 L55 20 L72 42 L88 30 L100 45 L100 70 L0 70 Z',
-  centro: 'M0 55 L25 40 L45 50 L70 30 L100 45 L100 70 L0 70 Z',
-  sur: 'M0 70 L0 60 L38 60 L50 12 L62 60 L100 58 L100 70 Z',
-  patagonia: 'M0 70 L0 50 L22 38 L32 8 L38 30 L45 5 L52 32 L60 12 L70 45 L100 50 L100 70 Z',
-  isla: 'M0 55 L40 42 L70 48 L100 38 L100 70 L0 70 Z',
-  multi: 'M0 62 L12 48 L22 56 L34 30 L44 50 L52 20 L60 44 L70 36 L80 52 L100 46 L100 70 L0 70 Z',
-};
 
 const byId = id => TOURS.find(t => t.id === id);
 const $ = sel => document.querySelector(sel);
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const TOUR_SCENE = {
+  tatio: 'geysers', luna: 'moon', lagunas: 'lagoons', valpo: 'valpo', maipo: 'maipo',
+  villarrica: 'volcano', petrohue: 'waterfall', chiloe: 'chiloe', 'w-trek': 'torres', grey: 'glacier',
+  rapanui: 'moai', bici: 'sea', 'atacama-lux': 'lodge', 'vino-lux': 'wine', 'lagos-lux': 'lake',
+  'patagonia-lux': 'torres', 'rapanui-lux': 'moai', 'chile-grand': 'glacier',
+};
+const ZONE_SCENE = { norte: 'lagoons', centro: 'valpo', sur: 'volcano', patagonia: 'torres', isla: 'moai' };
+// Foto real si el tour tiene "photo"; si no, la ilustración.
+const media = t => t.photo
+  ? `<img class="scene" src="${t.photo}" alt="${t.title}" loading="lazy">`
+  : scene(TOUR_SCENE[t.id]);
+
+// Política de pago: cuánto se paga al reservar y cuándo vence el saldo.
+function payPolicy(t) {
+  if (t.premium) return { pct: .5, due: 60 };
+  if (t.depositPct) return { pct: t.depositPct, due: 45 };
+  if (t.days > 1) return { pct: .3, due: 30 };
+  return { pct: 1, due: 0 };
+}
+
 const duration = t => t.nights ? `${plural(t.days, 'día', 'días')} · ${plural(t.nights, 'noche', 'noches')}` : plural(t.days, 'día', 'días');
 
 // ---------------------------------------------------------------------------
@@ -660,7 +672,7 @@ function card(t, i) {
       <div class="card-art">
         <span class="card-days">${plural(t.days, 'día', 'días')}</span>
         ${t.premium ? '<span class="badge">✦ All inclusive</span>' : ''}
-        <svg viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true"><path d="${RIDGES[t.region]}"/></svg>
+        ${media(t)}
       </div>
       <div class="card-body">
         <div class="card-meta"><span>${REGIONS[t.region]}</span><span>·</span><span class="lvl">${t.level}</span><span>·</span><span>${t.maxAlt}</span></div>
@@ -731,7 +743,7 @@ function renderHome() {
     const list = TOURS.filter(t => t.region === r);
     const from = Math.min(...list.map(t => t.price));
     return `<a class="zone-tile" href="#${z.route}" data-region="${r}" style="--i:${i}">
-      <svg viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true"><path d="${RIDGES[r]}"/></svg>
+      ${scene(ZONE_SCENE[r])}
       <span class="zt-name">${z.name}</span>
       <strong>${z.title}</strong>
       <span class="zt-meta">${plural(list.length, 'tour', 'tours')} · desde ${money(from)}</span>
@@ -754,7 +766,7 @@ function renderZone(region) {
   const next = ZONES[REGION_ORDER[(idx + 1) % REGION_ORDER.length]];
   $('#view-zona').innerHTML = `
     <section class="zone-hero" data-region="${region}">
-      <svg class="zone-ridge" viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true"><path d="${RIDGES[region]}"/></svg>
+      <div class="hero-art" aria-hidden="true">${scene(ZONE_SCENE[region])}</div>
       <div class="container">
         <p class="eyebrow">Zona ${idx + 1} de 5 · ${z.name}</p>
         <h1>${z.title}</h1>
@@ -794,6 +806,7 @@ function renderZone(region) {
 // Pestaña premium
 // ---------------------------------------------------------------------------
 function renderPremium() {
+  $('#premium-art').innerHTML = scene('lodge');
   const list = TOURS.filter(t => t.premium).sort((a, b) =>
     (a.region === 'multi') - (b.region === 'multi') || REGION_ORDER.indexOf(a.region) - REGION_ORDER.indexOf(b.region));
   $('#premium-cards').innerHTML = list.map(card).join('');
@@ -847,6 +860,11 @@ function openTour(id, day = 0) {
   if (!dlg.open) dlg.showModal();
 }
 
+function payLine(t, total) {
+  const { pct, due } = payPolicy(t);
+  return pct >= 1 ? 'pago total al reservar' : `reservas con ${money(total * pct)} (${pct * 100}%), saldo ${due} días antes`;
+}
+
 function renderDialog() {
   if (!dlgState.id) return;
   const t = byId(dlgState.id);
@@ -854,8 +872,9 @@ function renderDialog() {
   dlg.dataset.region = t.region;
   dlg.classList.toggle('premium', !!t.premium);
   dlg.innerHTML = `
+    <button class="dlg-close" data-close aria-label="Cerrar">✕</button>
+    <div class="dlg-art" aria-hidden="true">${media(t)}</div>
     <div class="dlg-head">
-      <button class="dlg-close" data-close aria-label="Cerrar">✕</button>
       <span class="dlg-tag">${t.premium ? '✦ All inclusive · ' : ''}${REGIONS[t.region]} · desde ${t.base}</span>
       <h2 id="dlg-title">${t.title}</h2>
       <p>${t.desc}</p>
@@ -890,7 +909,7 @@ function renderDialog() {
         <output>${dlgState.people}</output>
         <button type="button" data-people="1" aria-label="Agregar viajero">+</button>
       </span>
-      <span class="dlg-total">${money(t.price * dlgState.people)}<small>${plural(dlgState.people, 'viajero', 'viajeros')}</small></span>
+      <span class="dlg-total">${money(t.price * dlgState.people)}<small>${plural(dlgState.people, 'viajero', 'viajeros')} · ${payLine(t, t.price * dlgState.people)}</small></span>
       <button class="btn" data-toggle>${inTrip(t.id) ? '✓ En tu viaje · quitar' : '+ Agregar a mi viaje'}</button>
     </div>`;
 }
@@ -952,6 +971,11 @@ function renderTrip() {
   $('#sum-tours').textContent = tours.length;
   $('#sum-price').textContent = money(total);
   $('#request-trip').disabled = tours.length === 0;
+  const now = tours.reduce((s, t) => s + t.price * payPolicy(t).pct, 0) * state.people;
+  const firstDue = Math.max(0, ...tours.filter(t => payPolicy(t).pct < 1).map(t => payPolicy(t).due));
+  $('#pay-plan').innerHTML = tours.length ? `
+    <div><span>Para reservar hoy</span><strong>${money(now)}</strong></div>
+    <div><span>Saldo</span><strong>${money(total - now)}</strong>${total - now > 0 ? `<small>hasta ${firstDue} días antes del viaje</small>` : ''}</div>` : '';
 
   $('#trip-list').innerHTML = tours.map((t, i) => `
     <li class="trip-item" data-region="${t.region}">
@@ -1019,7 +1043,7 @@ $('#request-trip').addEventListener('click', () => {
   $('#c-msg').value =
     `Hola, quiero solicitar este viaje:\n${lines.join('\n')}\n\n` +
     `Inicio: ${start} · ${rows.length} días · ${state.people} viajeros\n` +
-    `Total estimado: ${$('#sum-price').textContent}`;
+    `Total estimado: ${$('#sum-price').textContent} · Reserva: ${$('#pay-plan strong').textContent}`;
   $('#contacto').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
   setTimeout(() => $('#c-name').focus({ preventScroll: true }), 500);
 });

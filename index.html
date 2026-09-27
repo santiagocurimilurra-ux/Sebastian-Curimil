@@ -3,21 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Rutas del Sur</title>
-  <meta name="description" content="Excursiones y viajes premium all inclusive por Chile, con itinerarios día a día y un armador de viajes interactivo.">
+  <title>Wolf Raven Expeditions</title>
+  <meta name="description" content="Wolf Raven Expeditions: excursiones y viajes premium all inclusive por Chile, con itinerarios día a día y un armador de viajes interactivo.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 26 L12 10 L18 19 L22 14 L30 26 Z' fill='%23ffd23f'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='9,7 13,12 16,11 19,12 23,7 23.5,15 26,18 21.5,23 16,28 10.5,23 6,18 8.5,15' fill='%23e3c07a'/></svg>">
 </head>
 <body>
 
   <header class="site-header" id="top">
     <div class="nav container">
-      <a href="#inicio" class="brand">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26 L12 10 L18 19 L22 14 L30 26 Z"/></svg>
-        Rutas del Sur
+      <a href="#inicio" class="brand" aria-label="Wolf Raven Expeditions, inicio">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle class="logo-ring" cx="32" cy="34" r="28"/>
+          <polygon class="logo-wolf" points="18,14 26,24 32,22 38,24 46,14 47,30 52,36 43,46 32,56 21,46 12,36 17,30"/>
+          <polygon class="logo-face" points="32,26 39,35 36,48 28,48 25,35"/>
+          <polygon class="logo-face" points="19,32 25,34 20,36"/>
+          <polygon class="logo-face" points="45,32 39,34 44,36"/>
+          <polygon class="logo-wolf" points="29,49 35,49 32,53"/>
+          <path class="logo-raven" d="M36 11 Q42 5 48 8 Q52 3 61 2 Q56 6 55 10 Q51 14 46 12.5 L41 16 L42.5 11.5 Z"/>
+        </svg>
+        <span class="wordmark"><b>Wolf Raven</b><small>Expeditions</small></span>
       </a>
       <div class="currency" role="group" aria-label="Moneda">
         <button type="button" data-currency="CLP" aria-pressed="true">CLP</button>
@@ -143,6 +151,7 @@
     <!-- ================= PREMIUM ================= -->
     <div class="view" data-view="premium" hidden>
       <section class="zone-hero premium-hero">
+        <div class="hero-art" id="premium-art" aria-hidden="true"></div>
         <div class="container">
           <p class="eyebrow">✦ Colección premium</p>
           <h1>All inclusive, de verdad</h1>
@@ -194,6 +203,7 @@
                 <div><span>Tours</span><strong id="sum-tours">0</strong></div>
                 <div><span>Total</span><strong id="sum-price">$0</strong></div>
               </div>
+              <div class="pay-plan" id="pay-plan"></div>
               <p class="fine">Precio total para todos los viajeros. Los vuelos entre zonas se cotizan aparte, salvo en los viajes premium que los incluyen.</p>
               <div class="trip-actions">
                 <button class="btn" id="request-trip">Solicitar este viaje</button>
@@ -239,7 +249,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Rutas del Sur · Excursiones en Chile</p>
+      <p>© <span id="year"></span> Wolf Raven Expeditions · Chile</p>
       <p class="fine" id="fx-note"></p>
     </div>
   </footer>
@@ -247,6 +257,7 @@
   <dialog class="tour-dialog" id="tour-dialog" aria-labelledby="dlg-title"></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="assets/scenes.js"></script>
   <script src="assets/script.js"></script>
 </body>
 </html>

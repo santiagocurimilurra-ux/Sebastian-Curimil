@@ -1,10 +1,11 @@
 # Sebastian-Curimil
 
-Sitio web de turismo **Rutas del Sur · Excursiones en Chile**.
+Sitio web de turismo de **Wolf Raven Expeditions** (Chile).
 
 Sitio estático (HTML, CSS y JavaScript sin dependencias):
 
 - `index.html`: estructura con pestañas (Inicio, una por zona, Premium, Mi viaje) y contacto.
+- `assets/scenes.js`: ilustraciones SVG de cada destino (se usan mientras no haya fotos).
 - `assets/styles.css`: estilos, adaptable a móvil y con modo claro y oscuro.
 - `assets/script.js`: zonas (`ZONES`), catálogo de tours y viajes premium con su itinerario día a día
   (`TOURS`), navegación por pestañas, mapa, selector CLP/USD, armador de viaje y formulario.
@@ -24,6 +25,9 @@ python3 -m http.server 8000
   tiene `itinerary`, un día por elemento, con sus horarios `[hora, actividad, detalle]`.
 - **Tours premium**: los que tienen `premium: true` aparecen en la pestaña Premium y en su zona.
   El precio es por persona en habitación doble.
+- **Fotos reales**: guarda la imagen en `assets/img/` y agrega `photo: 'assets/img/archivo.jpg'` al tour.
+- **Política de pago**: función `payPolicy` en `assets/script.js` (día: 100%, varios días: 30%,
+  premium y Circuito W: 50%; plazo del saldo en días antes del viaje).
 - **Tipo de cambio**: `USD_RATE` en `assets/script.js` (CLP por dólar, referencial).
 - **Colores**: variables CSS en `:root` dentro de `assets/styles.css`.
 - **Formulario de contacto**: ahora solo valida y muestra un mensaje. Para recibir las consultas,
