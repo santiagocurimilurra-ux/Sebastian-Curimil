@@ -622,3 +622,32 @@ a.region-jump { text-decoration: none; }
 .pay-plan strong { font: 800 1.1rem var(--font-display); font-variant-numeric: tabular-nums; }
 .pay-plan div:first-child strong { color: var(--sur); }
 .pay-plan small { display: block; font-size: .75rem; color: var(--muted); }
+
+/* ---------- Idioma y moneda ---------- */
+.pick select {
+  appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  padding: .4rem 1.6rem .4rem .7rem; border-radius: 999px; font: 500 .78rem var(--font-mono); cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 12px) 55%, calc(100% - 8px) 55%; background-size: 4px 4px; background-repeat: no-repeat;
+}
+@media (max-width: 520px) { .nav { gap: .4rem; } .wordmark small { display: none; } .pick select { padding-right: 1.3rem; } }
+
+/* ---------- Por qué Wolf Raven ---------- */
+.why { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.why li { display: grid; gap: .35rem; padding: 1.2rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); }
+.why b { font: 700 1.1rem var(--font-display); }
+.why span { color: var(--muted); font-size: .92rem; }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .why { grid-template-columns: 1fr; } }
+
+/* ---------- Circuitos ---------- */
+.badge-circ { background: var(--text); color: var(--bg); }
+.tab-circuits.is-active { border-bottom-color: var(--text); }
+.card.circuit .card-art::after { background: linear-gradient(90deg, var(--norte), var(--centro), var(--sur), var(--patagonia), var(--isla)); }
+.circuits-hero h1 { color: #fff; }
+.circuits-hero .incl-grid li { border-top-color: var(--sur); }
+.contact-info em { font-style: normal; }
+@media (max-width: 430px) { .wordmark { display: none; } }
+@media (max-width: 900px) { .trip { grid-template-columns: minmax(0, 1fr); } }
+.trip-fields input { min-width: 0; }
+@media (max-width: 380px) { .trip-fields { grid-template-columns: 1fr; } .trip-fields .stepper { justify-self: start; } }

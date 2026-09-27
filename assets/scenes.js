@@ -101,6 +101,72 @@ function scene(key) {
       <rect x="60" y="120" width="120" height="30" fill="#6b4a36"/><path d="M52 120 L120 96 L188 120Z" fill="#3a2a22"/>
       ${[72, 102, 132, 158].map(x => `<rect x="${x}" y="128" width="16" height="14" fill="#ffd98a"/>`).join('')}
       <path d="M180 150 h60 v4 h-60z" fill="#7a5a44"/>`,
+    observatory: () => `${sky('#141a3a', '#6a4c7d')}${stars(40)}
+      <path d="M0 170 Q60 120 130 150 T260 130 T400 150 V240 H0Z" fill="#3a2f4a"/>
+      <path d="M270 132 a26 26 0 0 1 52 0 z" fill="#e8e8f0"/><rect x="270" y="132" width="52" height="16" fill="#cfd0dc"/><path d="M296 110 l14 -14" stroke="#8c8fa8" stroke-width="5"/>
+      <path d="M0 200 H400 V240 H0Z" fill="#2c3b2a"/>${Array.from({ length: 10 }, (_, i) => `<path d="M${i * 44} 240 Q${60 + i * 36} 205 ${120 + i * 28} 200" stroke="#4d7a2e" stroke-width="4" fill="none" stroke-dasharray="2 5"/>`).join('')}`,
+    lauca: () => `${sky('#3e8ee0', '#cfe6fb')}
+      <path d="M40 160 L125 60 L210 160Z" fill="#6b5a66"/><path d="M104 84 L125 60 L146 84 L136 80 L125 90 L114 80Z" fill="#fff"/>
+      <path d="M180 160 L260 72 L340 160Z" fill="#7a6873"/><path d="M242 92 L260 72 L278 92 L268 88 L260 97 L252 88Z" fill="#fff"/>
+      <path d="M0 158 H400 V240 H0Z" fill="#b99a62"/>
+      <ellipse cx="200" cy="192" rx="190" ry="28" fill="#1c5fa3"/>
+      <path d="M125 172 L108 192 L142 192Z M260 176 L246 192 L274 192Z" fill="#6b5a66" opacity=".35"/>
+      ${[60, 80, 330].map(x => `<g fill="#f5f0e6"><ellipse cx="${x}" cy="222" rx="10" ry="6"/><path d="M${x + 7} 218 v-10" stroke="#f5f0e6" stroke-width="3"/><path d="M${x - 5} 226 v8 M${x + 5} 226 v8" stroke="#f5f0e6" stroke-width="2"/></g>`).join('')}`,
+    tara: () => `${sky('#4b9fe6', '#e2f0fb')}
+      <path d="M0 150 L120 120 L260 135 L400 115 V170 H0Z" fill="#a78c7b"/>
+      <path d="M0 165 H400 V240 H0Z" fill="#d7b98a"/>
+      <ellipse cx="260" cy="200" rx="110" ry="14" fill="#f3f4f2"/><ellipse cx="250" cy="198" rx="60" ry="6" fill="#7fc7e0"/>
+      ${[[60, 70], [95, 95], [130, 60]].map(([x, h]) => `<path d="M${x - 10} 180 L${x - 8} ${180 - h} Q${x} ${170 - h} ${x + 8} ${180 - h} L${x + 10} 180Z" fill="#8a5b3d"/>`).join('')}`,
+    city: () => `${sky('#8cc6ee', '#fde9cf')}
+      <path d="M0 130 L70 60 L130 110 L210 40 L290 100 L350 55 L400 90 V160 H0Z" fill="#a6afc4"/>
+      <path d="M58 72 L70 60 L84 74Z M196 52 L210 40 L226 56Z M338 66 L350 55 L364 68Z" fill="#fff"/>
+      ${[[20, 60], [50, 90], [80, 70], [115, 120], [150, 80], [185, 100], [225, 140], [262, 90], [300, 70], [335, 110], [370, 80]].map(([x, h]) => `<rect x="${x}" y="${200 - h}" width="28" height="${h}" fill="#3d4e66"/>${Array.from({ length: Math.floor(h / 18) }, (_, j) => `<rect x="${x + 6}" y="${206 - h + j * 18}" width="16" height="4" fill="#ffd98a" opacity=".6"/>`).join('')}`).join('')}
+      <path d="M225 60 v-12" stroke="#3d4e66" stroke-width="3"/>
+      <path d="M0 200 H400 V240 H0Z" fill="#5f7f46"/>`,
+    penguins: () => `${sky('#8fb5d6', '#e4eef6')}
+      <path d="M0 140 H400 V175 H0Z" fill="#3f6f8f"/>
+      <path d="M0 170 Q200 150 400 172 V240 H0Z" fill="#c9b792"/>
+      ${[[70, 1], [110, .8], [150, 1.1], [215, .9], [260, 1], [305, .85], [345, 1.05]].map(([x, s]) => `<g transform="translate(${x} ${200 - 10 * s}) scale(${s})"><ellipse rx="10" ry="18" fill="#1d1f24"/><ellipse cx="2" cy="3" rx="6" ry="13" fill="#f4f4f4"/><circle cy="-18" r="7" fill="#1d1f24"/><path d="M5 -18 l7 2 l-7 2z" fill="#e9a23b"/><path d="M-4 -20 q4 6 9 2" stroke="#fff" stroke-width="1.5" fill="none"/></g>`).join('')}`,
+    marble: () => `${sky('#6fb8e8', '#dff1fb')}
+      <path d="M0 140 L90 100 L200 120 L310 90 L400 110 V160 H0Z" fill="#6f7d7a"/>
+      <path d="M0 160 H400 V240 H0Z" fill="#1fb3c9"/>
+      <path d="M90 170 Q90 90 200 90 Q310 90 310 170 Z" fill="#e7e2dc"/>
+      <path d="M120 170 Q125 120 160 118 Q180 150 175 170Z M200 170 Q205 118 240 116 Q275 130 280 170Z" fill="#2aa0b8"/>
+      <path d="M100 150 q20 -8 40 0 M170 110 q20 -6 40 0 M240 105 q20 -6 40 2" stroke="#9aa3a8" stroke-width="3" fill="none" opacity=".7"/>
+      <path d="M160 200 l30 0 l-5 6 h-20z" fill="#f2c14e"/>`,
+    forest: () => `${sky('#b8d8c8', '#eaf4ee')}
+      ${trees(120, 16, '#4a7d5c', 60)}${trees(170, 20, '#2f5a3e', 70)}
+      <path d="M180 40 Q200 120 190 240 L230 240 Q215 120 215 40Z" fill="#dff3f7" opacity=".9"/>
+      <path d="M0 210 H400 V240 H0Z" fill="#1f3a2a"/>${trees(240, 24, '#173022', 44)}`,
+    springs: () => `${sky('#9fc9a8', '#e9f3ea')}
+      ${trees(120, 14, '#3e6e4c', 50)}
+      <path d="M0 120 H400 V240 H0Z" fill="#294a36"/>
+      ${[[70, 160], [180, 190], [300, 165], [120, 215], [260, 220]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="40" ry="12" fill="#6cc1c9"/><ellipse cx="${x}" cy="${y - 14}" rx="18" ry="10" fill="#fff" opacity=".35"/>`).join('')}
+      <path d="M0 175 L110 175 L150 205 L230 205 L260 180 L400 180" stroke="#c0392b" stroke-width="8" fill="none"/>`,
+    granite: () => `${sky('#8ec5ea', '#eaf5fb')}
+      <path d="M60 180 L90 60 Q140 30 180 70 L200 180Z" fill="#9da3a8"/><path d="M220 180 L250 80 Q300 50 330 90 L350 180Z" fill="#8a9095"/>
+      <path d="M110 80 v80 M150 70 v90 M270 95 v70 M310 90 v80" stroke="#7b8186" stroke-width="2"/>
+      <path d="M0 170 H400 V240 H0Z" fill="#2f5a3a"/>${trees(178, 22, '#244a2f', 30)}
+      <path d="M0 225 Q200 210 400 228" stroke="#6fb3c9" stroke-width="6" fill="none"/>
+      <g fill="#6b4a36" transform="translate(300 214)"><ellipse rx="14" ry="7"/><path d="M11 -4 l8 -12 l4 2 l-6 12z"/><path d="M-9 5 v9 M9 5 v9" stroke="#6b4a36" stroke-width="3"/><circle cy="-12" r="4" fill="#c0392b"/></g>`,
+    teeth: () => `${sky('#7c9bb8', '#dfe7ee')}
+      <path d="M40 170 L70 90 L85 120 L100 60 L118 110 L135 70 L152 118 L170 50 L188 115 L205 80 L225 130 L260 170Z" fill="#46505c"/>
+      <path d="M96 70 L100 60 L105 72Z M166 60 L170 50 L175 62Z M131 80 L135 70 L140 82Z" fill="#fff"/>
+      <path d="M0 165 H400 V240 H0Z" fill="#7f8a5a"/>
+      <ellipse cx="290" cy="195" rx="90" ry="18" fill="#3d5f7a"/>
+      <path d="M40 215 l14 -18 l14 18z" fill="#e67e22"/><path d="M70 218 l12 -15 l12 15z" fill="#f1c40f"/>`,
+    underwater: () => `<defs><linearGradient id="${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fc3e0"/><stop offset="1" stop-color="#0c3f66"/></linearGradient></defs><rect width="400" height="240" fill="url(#${u})"/>
+      <path d="M0 30 Q100 20 200 32 T400 28" stroke="#b8f0fb" stroke-width="3" fill="none" opacity=".6"/>
+      <path d="M0 240 V190 Q60 160 110 200 Q160 150 230 190 Q300 160 400 185 V240Z" fill="#2b2f3a"/>
+      <path d="M130 240 Q150 170 200 170 Q250 170 270 240Z" fill="#0c3f66"/>
+      ${[[60, 90], [300, 70], [250, 120]].map(([x, y]) => `<g fill="#f2c14e"><ellipse cx="${x}" cy="${y}" rx="10" ry="5"/><path d="M${x - 10} ${y} l-7 -5 v10z"/></g>`).join('')}
+      <g transform="translate(160 110)"><ellipse rx="28" ry="16" fill="#3d7a4a"/><ellipse cx="34" cy="-2" rx="8" ry="6" fill="#6aa96f"/><path d="M-18 -12 l-14 -10 M18 -12 l14 -12" stroke="#6aa96f" stroke-width="7" stroke-linecap="round"/></g>
+      ${[40, 90, 340].map(x => `<circle cx="${x}" cy="150" r="3" fill="#dff7ff" opacity=".6"/><circle cx="${x + 4}" cy="135" r="2" fill="#dff7ff" opacity=".6"/>`).join('')}`,
+    hills: () => `${sky('#7fcff5', '#e3f6ff')}
+      <path d="M0 150 H400 V240 H0Z" fill="#1aa6c2"/>
+      <path d="M0 240 V170 Q80 100 170 110 Q260 120 400 180 V240Z" fill="#6d9a3e"/>
+      <path d="M130 118 q40 -18 80 0" stroke="#4d7a2e" stroke-width="3" fill="none"/>
+      <g fill="#7a4a2e" transform="translate(220 150)"><ellipse rx="14" ry="7"/><path d="M11 -4 l8 -12 l4 2 l-6 12z"/><path d="M-9 5 v9 M9 5 v9" stroke="#7a4a2e" stroke-width="3"/><circle cy="-12" r="4" fill="#f4f4f4"/></g>`,
   };
   const body = (S[key] || S.torres)();
   return `<svg class="scene" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">${body}</svg>`;
