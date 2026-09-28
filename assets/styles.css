@@ -651,3 +651,22 @@ a.region-jump { text-decoration: none; }
 @media (max-width: 900px) { .trip { grid-template-columns: minmax(0, 1fr); } }
 .trip-fields input { min-width: 0; }
 @media (max-width: 380px) { .trip-fields { grid-template-columns: 1fr; } .trip-fields .stepper { justify-self: start; } }
+
+/* Ficha del tour en celulares o pantallas bajas: ocupa toda la pantalla y se desplaza completa */
+@media (max-width: 640px), (max-height: 720px) {
+  .tour-dialog {
+    width: 100%; max-width: 100%; height: 100dvh; max-height: 100dvh;
+    margin: 0; inset: 0; border: 0; border-radius: 0;
+  }
+  .tour-dialog[open] { display: block; overflow-y: auto; overscroll-behavior: contain; }
+  .dlg-body { overflow: visible; padding-inline: 1.1rem; }
+  .dlg-head { padding-inline: 1.1rem; }
+  .dlg-art { height: 130px; }
+  .dlg-close { position: fixed; top: calc(.75rem + env(safe-area-inset-top, 0px)); right: .75rem; }
+  .dlg-foot {
+    position: sticky; bottom: 0; z-index: 1; gap: .6rem;
+    padding: .75rem 1.1rem calc(.75rem + env(safe-area-inset-bottom, 0px));
+  }
+  .dlg-foot .btn { flex: 1 1 100%; padding-block: .75rem; }
+  .dlg-total { font-size: 1.2rem; text-align: right; }
+}
