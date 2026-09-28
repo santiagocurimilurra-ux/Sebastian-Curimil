@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wolf Raven Expeditions</title>
+  <meta name="description" content="Wolf Raven Expeditions: guided tours, multi-day journeys and all-inclusive trips in Chile. Atacama, Patagonia, Easter Island. English, Deutsch, Español.">
+  <meta property="og:title" content="Wolf Raven Expeditions · Chile">
+  <meta property="og:description" content="Guided expeditions in Chile: Atacama, Patagonia, lakes and volcanoes, Easter Island. Guides in English and German.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='9,7 13,12 16,11 19,12 23,7 23.5,15 26,18 21.5,23 16,28 10.5,23 6,18 8.5,15' fill='%23e3c07a'/></svg>">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="nav container">
+      <a href="#inicio" class="brand" aria-label="Wolf Raven Expeditions">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle class="logo-ring" cx="32" cy="34" r="28"/>
+          <polygon class="logo-wolf" points="18,14 26,24 32,22 38,24 46,14 47,30 52,36 43,46 32,56 21,46 12,36 17,30"/>
+          <polygon class="logo-face" points="32,26 39,35 36,48 28,48 25,35"/>
+          <polygon class="logo-face" points="19,32 25,34 20,36"/>
+          <polygon class="logo-face" points="45,32 39,34 44,36"/>
+          <polygon class="logo-wolf" points="29,49 35,49 32,53"/>
+          <path class="logo-raven" d="M36 11 Q42 5 48 8 Q52 3 61 2 Q56 6 55 10 Q51 14 46 12.5 L41 16 L42.5 11.5 Z"/>
+        </svg>
+        <span class="wordmark"><b>Wolf Raven</b><small>Expeditions</small></span>
+      </a>
+      <label class="pick">
+        <span class="sr" data-i18n="lang.label">Idioma</span>
+        <select id="lang">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </label>
+      <label class="pick">
+        <span class="sr" data-i18n="cur.label">Moneda</span>
+        <select id="currency">
+          <option value="CLP">CLP</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </label>
+      <a href="#viaje" class="trip-pill" id="trip-pill">
+        <span class="pill-label" data-i18n="tab.trip">Mi viaje</span> <span class="trip-count" id="trip-count">0</span>
+      </a>
+    </div>
+    <nav class="tabs-wrap" aria-label="Wolf Raven Expeditions">
+      <div class="tabs container" id="tabs">
+        <a href="#inicio" class="tab" data-route="inicio" data-i18n="tab.home">Inicio</a>
+        <a href="#norte" class="tab" data-route="norte" data-region="norte"><i></i><span data-i18n="r.norte">Norte</span></a>
+        <a href="#centro" class="tab" data-route="centro" data-region="centro"><i></i><span data-i18n="r.centro">Centro</span></a>
+        <a href="#sur" class="tab" data-route="sur" data-region="sur"><i></i><span data-i18n="r.sur">Sur</span></a>
+        <a href="#patagonia" class="tab" data-route="patagonia" data-region="patagonia"><i></i><span data-i18n="r.patagonia">Patagonia</span></a>
+        <a href="#rapanui" class="tab" data-route="rapanui" data-region="isla"><i></i><span data-i18n="r.isla">Rapa Nui</span></a>
+        <a href="#circuitos" class="tab tab-circuits" data-route="circuitos" data-i18n="tab.circuits">Circuitos</a>
+        <a href="#premium" class="tab tab-premium" data-route="premium" data-i18n="tab.premium">✦ Premium</a>
+        <a href="#viaje" class="tab" data-route="viaje" data-i18n="tab.trip">Mi viaje</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= INICIO ================= -->
+    <div class="view" data-view="inicio">
+      <section class="hero" id="hero">
+        <div class="sky" aria-hidden="true">
+          <canvas id="stars"></canvas>
+          <svg class="layer" data-depth="6" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice">
+            <circle cx="1100" cy="150" r="64" class="moon"/>
+          </svg>
+          <svg class="layer" data-depth="14" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice">
+            <path class="m3" d="M0 360 L160 220 L300 300 L470 140 L640 290 L820 170 L1010 320 L1190 190 L1440 290 L1440 520 L0 520 Z"/>
+            <path class="snow" d="M470 140 L440 168 L462 162 L476 176 L492 160 L505 166 Z M820 170 L795 192 L815 188 L828 200 L840 188 L850 192 Z M1190 190 L1165 212 L1185 208 L1198 220 L1210 208 L1220 212 Z"/>
+          </svg>
+          <svg class="layer" data-depth="26" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice">
+            <path class="m2" d="M0 420 L210 300 L380 390 L590 260 L800 400 L980 290 L1200 410 L1440 330 L1440 520 L0 520 Z"/>
+          </svg>
+          <svg class="layer" data-depth="40" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice">
+            <path class="m1" d="M0 470 L250 400 L470 460 L720 380 L960 470 L1200 410 L1440 460 L1440 520 L0 520 Z"/>
+          </svg>
+        </div>
+
+        <div class="container hero-content">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Expediciones guiadas · 4.300 km de norte a sur</p>
+          <h1><span data-i18n="hero.title">Recorre Chile</span><br><span class="rotator" id="rotator">entre géiseres</span></h1>
+          <p class="lead" data-i18n="hero.lead"></p>
+          <div class="hero-actions">
+            <a href="#zonas" class="btn" data-i18n="hero.zones">Ver zonas</a>
+            <a href="#circuitos" class="btn btn-ghost" data-i18n="hero.circuits">Circuitos 10–20 días</a>
+            <a href="#premium" class="btn btn-ghost" data-i18n="hero.premium">✦ Premium</a>
+          </div>
+          <div class="hero-regions">
+            <a class="region-jump" href="#norte" data-region="norte" data-i18n="r.norte">Norte</a>
+            <a class="region-jump" href="#centro" data-region="centro" data-i18n="r.centro">Centro</a>
+            <a class="region-jump" href="#sur" data-region="sur" data-i18n="r.sur">Sur</a>
+            <a class="region-jump" href="#patagonia" data-region="patagonia" data-i18n="r.patagonia">Patagonia</a>
+            <a class="region-jump" href="#rapanui" data-region="isla" data-i18n="r.isla">Rapa Nui</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container steps">
+        <div class="step"><span class="step-n">1</span><div><h3 data-i18n="step1.t"></h3><p data-i18n="step1.p"></p></div></div>
+        <div class="step"><span class="step-n">2</span><div><h3 data-i18n="step2.t"></h3><p data-i18n="step2.p"></p></div></div>
+        <div class="step"><span class="step-n">3</span><div><h3 data-i18n="step3.t"></h3><p data-i18n="step3.p"></p></div></div>
+      </section>
+
+      <section class="section" id="zonas">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="zones.eyebrow">Zonas</p>
+            <h2 data-i18n="zones.title">Un país, cinco mundos</h2>
+          </header>
+          <div class="explore">
+            <aside class="map-wrap">
+              <svg class="map" id="map" viewBox="0 0 220 430" role="group" aria-label="Chile">
+                <defs>
+                  <clipPath id="chile-clip">
+                    <path d="M120 8 C128 40 118 70 124 100 C130 130 116 160 120 190 C124 220 108 250 110 280 C112 300 98 320 92 340 C86 360 70 372 76 392 C80 404 96 410 104 402 C98 390 108 378 104 366 C112 350 110 336 118 320 C124 300 122 280 128 260 C132 230 126 200 134 170 C138 140 132 110 138 80 C142 50 134 24 120 8 Z"/>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#chile-clip)">
+                  <rect class="band" data-region="norte" x="0" y="0" width="220" height="125"/>
+                  <rect class="band" data-region="centro" x="0" y="125" width="220" height="70"/>
+                  <rect class="band" data-region="sur" x="0" y="195" width="220" height="105"/>
+                  <rect class="band" data-region="patagonia" x="0" y="300" width="220" height="130"/>
+                </g>
+                <path class="outline" d="M120 8 C128 40 118 70 124 100 C130 130 116 160 120 190 C124 220 108 250 110 280 C112 300 98 320 92 340 C86 360 70 372 76 392 C80 404 96 410 104 402 C98 390 108 378 104 366 C112 350 110 336 118 320 C124 300 122 280 128 260 C132 230 126 200 134 170 C138 140 132 110 138 80 C142 50 134 24 120 8 Z"/>
+                <circle class="band" data-region="isla" cx="34" cy="190" r="13"/>
+                <g class="map-labels">
+                  <text x="152" y="62" data-region="norte" data-i18n="r.norte">Norte</text>
+                  <text x="148" y="164" data-region="centro" data-i18n="r.centro">Centro</text>
+                  <text x="140" y="250" data-region="sur" data-i18n="r.sur">Sur</text>
+                  <text x="118" y="372" data-region="patagonia" data-i18n="r.patagonia">Patagonia</text>
+                  <text x="34" y="222" text-anchor="middle" data-region="isla" data-i18n="r.isla">Rapa Nui</text>
+                </g>
+                <g id="pins"></g>
+              </svg>
+              <p class="map-hint" id="map-hint"></p>
+            </aside>
+            <div class="zone-tiles" id="zone-tiles"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="why.eyebrow">Por qué Wolf Raven</p>
+            <h2 data-i18n="why.title"></h2>
+          </header>
+          <ul class="why">
+            <li><b data-i18n="why1.t"></b><span data-i18n="why1.p"></span></li>
+            <li><b data-i18n="why2.t"></b><span data-i18n="why2.p"></span></li>
+            <li><b data-i18n="why3.t"></b><span data-i18n="why3.p"></span></li>
+            <li><b data-i18n="why4.t"></b><span data-i18n="why4.p"></span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section premium-band">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="pband.eyebrow">✦ Premium all inclusive</p>
+            <h2 data-i18n="pband.title"></h2>
+            <p class="muted" data-i18n="pband.p"></p>
+          </header>
+          <div class="cards" id="premium-teaser"></div>
+          <a href="#premium" class="btn btn-gold" data-i18n="pband.btn"></a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= ZONA (se rellena desde script.js) ================= -->
+    <div class="view" data-view="zona" id="view-zona" hidden></div>
+
+    <!-- ================= CIRCUITOS ================= -->
+    <div class="view" data-view="circuitos" hidden>
+      <section class="zone-hero circuits-hero">
+        <div class="hero-art" id="circuits-art" aria-hidden="true"></div>
+        <div class="container">
+          <p class="eyebrow" data-i18n="circ.eyebrow">Circuitos</p>
+          <h1 data-i18n="circ.title"></h1>
+          <p class="lead" data-i18n="circ.lead"></p>
+          <ul class="incl-grid">
+            <li><b data-i18n="circ.f1.t"></b><span data-i18n="circ.f1.p"></span></li>
+            <li><b data-i18n="circ.f2.t"></b><span data-i18n="circ.f2.p"></span></li>
+            <li><b data-i18n="circ.f3.t"></b><span data-i18n="circ.f3.p"></span></li>
+            <li><b data-i18n="circ.f4.t"></b><span data-i18n="circ.f4.p"></span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="cards" id="circuit-cards"></div>
+          <p class="fine center" data-i18n="circ.note"></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= PREMIUM ================= -->
+    <div class="view" data-view="premium" hidden>
+      <section class="zone-hero premium-hero">
+        <div class="hero-art" id="premium-art" aria-hidden="true"></div>
+        <div class="container">
+          <p class="eyebrow" data-i18n="prem.eyebrow">✦ Colección premium</p>
+          <h1 data-i18n="prem.title"></h1>
+          <p class="lead" data-i18n="prem.lead"></p>
+          <ul class="incl-grid">
+            <li><b data-i18n="prem.i1.t"></b><span data-i18n="prem.i1.p"></span></li>
+            <li><b data-i18n="prem.i2.t"></b><span data-i18n="prem.i2.p"></span></li>
+            <li><b data-i18n="prem.i3.t"></b><span data-i18n="prem.i3.p"></span></li>
+            <li><b data-i18n="prem.i4.t"></b><span data-i18n="prem.i4.p"></span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="cards" id="premium-cards"></div>
+          <p class="fine center" data-i18n="prem.note"></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= MI VIAJE ================= -->
+    <div class="view" data-view="viaje" hidden>
+      <section class="section">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="trip.eyebrow">Mi viaje</p>
+            <h2 data-i18n="trip.title"></h2>
+          </header>
+
+          <div class="trip">
+            <div class="trip-panel">
+              <p class="example-note" id="example-note" data-i18n="trip.example" hidden></p>
+              <div class="trip-fields">
+                <label><span data-i18n="trip.start">Fecha de inicio</span>
+                  <input type="date" id="trip-start">
+                </label>
+                <label><span data-i18n="trip.people">Viajeros</span>
+                  <span class="stepper">
+                    <button type="button" id="people-minus" data-i18n-aria="d.minus">−</button>
+                    <output id="people">2</output>
+                    <button type="button" id="people-plus" data-i18n-aria="d.plus">+</button>
+                  </span>
+                </label>
+              </div>
+              <ol class="trip-list" id="trip-list"></ol>
+              <p class="trip-empty" id="trip-empty" data-i18n-html="trip.empty" hidden></p>
+              <div class="trip-summary">
+                <div><span data-i18n="trip.days">Días</span><strong id="sum-days">0</strong></div>
+                <div><span data-i18n="trip.tours">Tours</span><strong id="sum-tours">0</strong></div>
+                <div><span data-i18n="trip.total">Total</span><strong id="sum-price">$0</strong></div>
+              </div>
+              <div class="pay-plan" id="pay-plan"></div>
+              <p class="fine" data-i18n="trip.fine"></p>
+              <div class="trip-actions">
+                <button class="btn" id="request-trip" data-i18n="trip.request">Solicitar este viaje</button>
+                <button class="btn btn-ghost" id="clear-trip" data-i18n="trip.clear">Vaciar</button>
+              </div>
+            </div>
+
+            <div class="trip-timeline" id="trip-timeline" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= CONTACTO (siempre visible) ================= -->
+    <section class="section section-alt" id="contacto">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow" data-i18n="c.eyebrow">Contacto</p>
+          <h2 data-i18n="c.title"></h2>
+          <p class="muted" data-i18n="c.p"></p>
+          <ul class="contact-info">
+            <li><span data-i18n="c.email">Correo</span>excursiones420@gmail.com</li>
+            <li><span data-i18n="c.langs">Idiomas</span><em data-i18n="c.langsV"></em></li>
+            <li><span data-i18n="c.hours">Horario</span><em data-i18n="c.hoursV"></em></li>
+            <li><span data-i18n="c.office">Oficina</span><em data-i18n="c.officeV"></em></li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <label><span data-i18n="f.name">Nombre</span>
+            <input type="text" id="c-name" name="nombre" required autocomplete="name">
+          </label>
+          <label><span data-i18n="f.email">Correo electrónico</span>
+            <input type="email" id="c-email" name="email" required autocomplete="email">
+          </label>
+          <label><span data-i18n="f.msg">Mensaje</span>
+            <textarea id="c-msg" name="mensaje" rows="6" data-i18n-ph="f.ph"></textarea>
+          </label>
+          <button type="submit" class="btn" data-i18n="f.send">Enviar consulta</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> <span data-i18n="footer">Wolf Raven Expeditions · Chile</span></p>
+      <p class="fine" id="fx-note"></p>
+    </div>
+  </footer>
+
+  <dialog class="tour-dialog" id="tour-dialog" aria-labelledby="dlg-title"></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/i18n.js"></script>
+  <script src="assets/tours.js"></script>
+  <script src="assets/tours-en.js"></script>
+  <script src="assets/tours-de.js"></script>
+  <script src="assets/scenes.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>
